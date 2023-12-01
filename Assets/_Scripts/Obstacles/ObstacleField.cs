@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class ObstacleField : MonoBehaviour {
     private BoxCollider2D _area;
-    public Obstacle obstalcePrefab;
+    public Obstacle obstaclePrefab;
     public int obstacleCount = 50;
 
     private List<Obstacle> _activeObstacles;
@@ -30,7 +30,7 @@ public class ObstacleField : MonoBehaviour {
             position.x = Mathf.Round(Random.Range(bounds.min.x, bounds.max.x));
             position.y = Mathf.Round(Random.Range(bounds.min.y, bounds.max.y));
 
-            _activeObstacles.Add(Instantiate(obstalcePrefab, position, Quaternion.identity, transform));
+            _activeObstacles.Add(Instantiate(obstaclePrefab, position, Quaternion.identity, transform));
         }
     }
 
