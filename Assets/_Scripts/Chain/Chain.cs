@@ -12,8 +12,11 @@ public class Chain : MonoBehaviour {
     public Sprite chainHead;
     public Sprite chainTail;
     public Sprite chainBody;
+    public float speed = 20f;
 
     public int chainSegments = 12;
+
+    public LayerMask collisionMask;
     
     private void Start() {
         Respawn();
