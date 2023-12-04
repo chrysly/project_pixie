@@ -32,7 +32,7 @@ public class ChainSegment : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
     }
 
-    private void UpdateHeadSegment() {
+    public void UpdateHeadSegment() {
         Vector2 gridPosition = GridPosition(transform.position);
         targetPosition = gridPosition;
         targetPosition.x += direction.x;
@@ -71,5 +71,12 @@ public class ChainSegment : MonoBehaviour
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);
         return position;
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.collider.enabled && collision.gameObject.layer == LayerMask.NameToLayer("Projectile")) {
+            collision.collider.enabled = false;
+            chain.Remove(this);
+        }
     }
 }
