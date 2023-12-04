@@ -17,6 +17,7 @@ public class Chain : MonoBehaviour {
     public int chainSegments = 12;
 
     public LayerMask collisionMask;
+    public BoxCollider2D homeBase;
     
     private void Start() {
         Respawn();
