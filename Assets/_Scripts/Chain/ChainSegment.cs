@@ -74,6 +74,11 @@ public class ChainSegment : MonoBehaviour
     }
     
     private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
+            GameManager.Instance.ResetRound();
+            return;
+        }
+        
         if (collision.collider.enabled && collision.gameObject.layer == LayerMask.NameToLayer("Projectile")) {
             collision.collider.enabled = false;
             chain.Remove(this);

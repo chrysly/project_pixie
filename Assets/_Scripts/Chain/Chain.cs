@@ -19,12 +19,8 @@ public class Chain : MonoBehaviour {
 
     public LayerMask collisionMask;
     public BoxCollider2D homeBase;
-    
-    private void Start() {
-        Respawn();
-    }
 
-    private void Respawn() {
+    public void Respawn() {
         foreach (ChainSegment segment in _segments) {
             Destroy(segment.gameObject);
         }
@@ -62,6 +58,10 @@ public class Chain : MonoBehaviour {
         
         _segments.Remove(segment);
         Destroy(segment.gameObject);
+
+        if (_segments.Count == 0) {
+            GameManager.Instance.NextLevel();
+        }
     }
 
     private ChainSegment GetSegmentAt(int index) {

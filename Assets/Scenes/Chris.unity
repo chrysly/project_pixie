@@ -1194,6 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chainSegmentPrefab: {fileID: 2765078638942039621, guid: 68bd4798028211d438ffc6d97974c49b, type: 3}
+  obstalcePrefab: {fileID: 7205491693674060683, guid: 77194239b3a16464db7fc1e3701d20f1, type: 3}
   chainHead: {fileID: 21300000, guid: 3ef350caa61b315459574a7e2304076a, type: 3}
   chainTail: {fileID: 21300000, guid: b760a766ffd3bc24ea852e8e876f3c44, type: 3}
   chainBody: {fileID: 21300000, guid: b760a766ffd3bc24ea852e8e876f3c44, type: 3}

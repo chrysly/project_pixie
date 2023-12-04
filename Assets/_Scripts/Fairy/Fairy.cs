@@ -7,10 +7,12 @@ using UnityEngine.UIElements;
 public class Fairy : MonoBehaviour {
     private new Rigidbody2D rigidbody;
     private Vector2 direction;
+    private Vector2 spawnPosiiton;
     [SerializeField] private float speed;
 
     private void Awake() {
         rigidbody = GetComponent<Rigidbody2D>();
+        spawnPosiiton = transform.position;
     }
 
     // Update is called once per frame
@@ -23,5 +25,10 @@ public class Fairy : MonoBehaviour {
         Vector2 position = rigidbody.position;
         position += direction.normalized * speed * Time.fixedDeltaTime;
         rigidbody.MovePosition(position);
+    }
+
+    public void Respawn() {
+        transform.position = spawnPosiiton;
+        gameObject.SetActive(true);
     }
 }
