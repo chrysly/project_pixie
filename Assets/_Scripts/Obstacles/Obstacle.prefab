@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7988712164726815479}
   - component: {fileID: 7205491693674060683}
   - component: {fileID: 6091794644915447540}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +102,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0d178d3d8b3b3154a90b887c5fff75e5, type: 3}
   - {fileID: 21300000, guid: 81027923ec166c9458bbdc62c1cff25a, type: 3}
   - {fileID: 21300000, guid: ba3a1357865e54243a54eb9c62c93e32, type: 3}
+  _health: 0
 --- !u!61 &6091794644915447540
 BoxCollider2D:
   m_ObjectHideFlags: 0

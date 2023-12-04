@@ -41,8 +41,15 @@ public class ChainSegment : MonoBehaviour
             direction.x = -direction.x;
             targetPosition.x = gridPosition.x;
             targetPosition.y = gridPosition.y + direction.y;
-            
-            
+
+            Bounds homeBounds = chain.homeBase.bounds;
+            if ((direction.y == 1f && targetPosition.y > homeBounds.max.y) ||
+                (direction.y == -1f && targetPosition.y < homeBounds.min.y)) {
+                direction.y = -direction.y;
+                targetPosition.y = gridPosition.y + direction.y;
+            }
+
+            Debug.Log("Collided");
         }
         
         if (behind != null) {

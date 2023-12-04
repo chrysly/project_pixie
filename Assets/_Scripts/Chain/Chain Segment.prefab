@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1942810054980628557}
   - component: {fileID: 6630986321179011077}
   - component: {fileID: 2765078638942039621}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chain Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
