@@ -65,6 +65,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void NextLevel() {
-        
+        _chain.speed *= 1.3f;
+        _chain.chainSegments += 2;
+        _chain.Respawn();
+    }
+
+    public void IncreaseScore(int amount) {
+        score += amount;
     }
 }
