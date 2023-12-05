@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour {
     public Sprite[] states;
     public int _health;
     private SpriteRenderer _spriteRenderer;
+    public int points = 1;
 
     private void Awake() {
         _spriteRenderer = GetComponent<SpriteRenderer>();

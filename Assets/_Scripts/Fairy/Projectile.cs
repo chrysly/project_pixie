@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour {
     private new Rigidbody2D _rigidbody2D;
     private new Collider2D _collider2D;
     private Transform parent;
+    [SerializeField] private GameObject impactVFX;
 
     public float speed = 30f;
 
@@ -18,6 +19,8 @@ public class Projectile : MonoBehaviour {
         _collider2D = GetComponent<Collider2D>();
         _collider2D.enabled = false;
         
+        impactVFX.SetActive(false);
+        
         parent = transform.parent;
     }
 
@@ -26,6 +29,7 @@ public class Projectile : MonoBehaviour {
             transform.SetParent(null);
             _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
             _collider2D.enabled = true;
+            impactVFX.SetActive(true);
         }
     }
 
@@ -42,5 +46,6 @@ public class Projectile : MonoBehaviour {
         transform.localPosition = new Vector3(0f, 1.5f, 0f);
         _rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
         _collider2D.enabled = false;
+        impactVFX.SetActive(false);
     }
 }

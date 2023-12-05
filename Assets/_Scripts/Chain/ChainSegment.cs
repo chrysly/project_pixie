@@ -10,6 +10,8 @@ public class ChainSegment : MonoBehaviour
     public ChainSegment ahead { get; set; }
     public ChainSegment behind { get; set; }
     public bool isHead => ahead == null;
+    public int pointsHead = 100;
+    public int pointsBody = 10;
 
     private Vector2 direction = Vector2.right + Vector2.down;
     private Vector2 targetPosition;
