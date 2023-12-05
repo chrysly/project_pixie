@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour {
     private new Rigidbody2D _rigidbody2D;
     private new Collider2D _collider2D;
     private Transform parent;
+    private SpriteRenderer _spriteRenderer;
 
     public float speed = 30f;
 
@@ -17,6 +18,8 @@ public class Projectile : MonoBehaviour {
         
         _collider2D = GetComponent<Collider2D>();
         _collider2D.enabled = false;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.enabled = false;
         
         parent = transform.parent;
     }
@@ -26,6 +29,7 @@ public class Projectile : MonoBehaviour {
             transform.SetParent(null);
             _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
             _collider2D.enabled = true;
+            _spriteRenderer.enabled = true;
         }
     }
 
