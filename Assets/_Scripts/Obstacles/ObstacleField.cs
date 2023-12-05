@@ -17,10 +17,6 @@ public class ObstacleField : MonoBehaviour {
         _activeObstacles = new List<Obstacle>();
     }
 
-    private void Start() {
-        Generate();
-    }
-
     private void Generate() {
         Bounds bounds = _area.bounds;
 

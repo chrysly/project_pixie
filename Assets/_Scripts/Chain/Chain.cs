@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class Chain : MonoBehaviour {
     private List<ChainSegment> _segments = new List<ChainSegment>();
     public ChainSegment chainSegmentPrefab;
+    public Obstacle obstalcePrefab;
 
     public Sprite chainHead;
     public Sprite chainTail;
@@ -18,12 +19,8 @@ public class Chain : MonoBehaviour {
 
     public LayerMask collisionMask;
     public BoxCollider2D homeBase;
-    
-    private void Start() {
-        Respawn();
-    }
 
-    private void Respawn() {
+    public void Respawn() {
         foreach (ChainSegment segment in _segments) {
             Destroy(segment.gameObject);
         }
@@ -42,6 +39,28 @@ public class Chain : MonoBehaviour {
             ChainSegment segment = _segments[i];
             segment.ahead = GetSegmentAt(i - 1);
             segment.behind = GetSegmentAt(i + 1);
+        }
+    }
+
+    public void Remove(ChainSegment segment) {
+        Vector3 position = GridPosition(segment.transform.position);
+        Instantiate(obstalcePrefab, position, Quaternion.identity);
+
+        if (segment.ahead != null) {
+            segment.ahead.behind = null;
+        }
+
+        if (segment.behind != null) {
+            segment.behind.ahead = null;
+            segment.behind.spriteRenderer.sprite = chainHead;
+            segment.behind.UpdateHeadSegment();
+        }
+        
+        _segments.Remove(segment);
+        Destroy(segment.gameObject);
+
+        if (_segments.Count == 0) {
+            GameManager.Instance.NextLevel();
         }
     }
 
