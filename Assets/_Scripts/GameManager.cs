@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     private void NewGame() {
         gameOverText.SetActive(false);
         scoreText.text = "" + 0;
-        healthText.text = "" + 0;
+        healthText.text = "" + 3;
         score = 0;
         lives = 3;
         _chain.Respawn();
