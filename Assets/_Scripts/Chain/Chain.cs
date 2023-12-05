@@ -10,7 +10,7 @@ public class Chain : MonoBehaviour {
     public ChainSegment chainSegmentPrefab;
     public Obstacle obstalcePrefab;
 
-    public Sprite chainHead;
+    public SpriteRenderer chainHead;
     public Sprite chainTail;
     public Sprite chainBody;
     public float speed = 20f;
@@ -33,7 +33,7 @@ public class Chain : MonoBehaviour {
         for (int i = 0; i < chainSegments; i++) {
             Vector2 position = GridPosition(transform.position) + (Vector2.left * i);
             ChainSegment segment = Instantiate(chainSegmentPrefab, position, Quaternion.identity); 
-            segment.spriteRenderer.sprite = i == 0 ? chainHead : chainBody;
+            segment.spriteRenderer.sprite = i == 0 ? chainHead.sprite : chainBody;
             segment.chain = this;
             _segments.Add(segment);
         }
@@ -58,7 +58,7 @@ public class Chain : MonoBehaviour {
 
         if (segment.behind != null) {
             segment.behind.ahead = null;
-            segment.behind.spriteRenderer.sprite = chainHead;
+            segment.behind.spriteRenderer.sprite = chainHead.sprite;
             segment.behind.UpdateHeadSegment();
         }
         
