@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5811545305241793050}
   - component: {fileID: 3143965776051441806}
+  - component: {fileID: 7661046767818743147}
+  - component: {fileID: 8216967599031297972}
   m_Layer: 0
   m_Name: Chain
   m_TagString: Untagged
@@ -46,9 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chainSegmentPrefab: {fileID: 2765078638942039621, guid: 68bd4798028211d438ffc6d97974c49b, type: 3}
   obstalcePrefab: {fileID: 7205491693674060683, guid: 77194239b3a16464db7fc1e3701d20f1, type: 3}
-  chainHead: {fileID: 21300000, guid: 3ef350caa61b315459574a7e2304076a, type: 3}
-  chainTail: {fileID: 21300000, guid: b760a766ffd3bc24ea852e8e876f3c44, type: 3}
-  chainBody: {fileID: 21300000, guid: b760a766ffd3bc24ea852e8e876f3c44, type: 3}
+  chainHead: {fileID: 21300000, guid: cafbd88f19c2e40498b4ed557a17625a, type: 3}
+  chainTail: {fileID: 21300000, guid: eaab21b20e0825243b778b93bba47f85, type: 3}
+  chainBody: {fileID: 21300000, guid: eaab21b20e0825243b778b93bba47f85, type: 3}
   speed: 5
   chainSegments: 12
   collisionMask:
@@ -57,3 +59,76 @@ MonoBehaviour:
   homeBase: {fileID: 0}
   pointsHead: 100
   pointsBody: 10
+--- !u!95 &7661046767818743147
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4689301461559335584}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80fe44d8e2caacc4f831763eaf876fc3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!212 &8216967599031297972
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4689301461559335584}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: cafbd88f19c2e40498b4ed557a17625a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
