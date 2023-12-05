@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour {
@@ -22,22 +23,16 @@ public class Obstacle : MonoBehaviour {
         else {
             Destroy(gameObject);
         }
-    } 
+    }
 
-    private void OnCollisionEnter(Collision other) {
-        if (CollidedIsProjectile()) {
+    public void Heal() {
+        _health = states.Length;
+        _spriteRenderer.sprite = states[0];
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Projectile")) {
             Damage(1);
-        } else if (CollidedIsPlayer()) {
-            //player.Damage();
         }
-    }
-
-    private bool CollidedIsProjectile() { //blocked by projectile implementation
-        return false;
-        
-    }
-
-    private bool CollidedIsPlayer() { //blocked by player implementaiton
-        return false;
     }
 }
