@@ -17,6 +17,10 @@ public class ChainSegment : MonoBehaviour
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
         targetPosition = transform.position;
+
+        //if (isHead) {
+        //    gameObject.GetComponent<Animator>().enabled = true;
+        //}
     }
 
     private void Update() {
