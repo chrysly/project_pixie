@@ -23,6 +23,7 @@ public class Obstacle : MonoBehaviour {
         }
         else {
             Destroy(gameObject);
+            GameManager.Instance.IncreaseScore(points);
         }
     }
 
