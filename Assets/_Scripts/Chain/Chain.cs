@@ -19,6 +19,9 @@ public class Chain : MonoBehaviour {
 
     public LayerMask collisionMask;
     public BoxCollider2D homeBase;
+    
+    public int pointsHead = 100;
+    public int pointsBody = 10;
 
     public void Respawn() {
         foreach (ChainSegment segment in _segments) {
@@ -43,6 +46,9 @@ public class Chain : MonoBehaviour {
     }
 
     public void Remove(ChainSegment segment) {
+
+        GameManager.Instance.IncreaseScore(segment.isHead ? pointsHead : pointsBody);
+        
         Vector3 position = GridPosition(segment.transform.position);
         Instantiate(obstalcePrefab, position, Quaternion.identity);
 

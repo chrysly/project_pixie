@@ -20,6 +20,7 @@ public class Projectile : MonoBehaviour {
         _collider2D.enabled = false;
         
         impactVFX.SetActive(false);
+        transform.GetChild(0).gameObject.SetActive(false);
         
         parent = transform.parent;
     }
@@ -30,6 +31,7 @@ public class Projectile : MonoBehaviour {
             _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
             _collider2D.enabled = true;
             impactVFX.SetActive(true);
+            transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -47,5 +49,6 @@ public class Projectile : MonoBehaviour {
         _rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
         _collider2D.enabled = false;
         impactVFX.SetActive(false);
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 }
