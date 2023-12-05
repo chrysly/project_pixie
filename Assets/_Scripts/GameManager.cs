@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,10 @@ public class GameManager : MonoBehaviour
     private Fairy _player;
     private Chain _chain;
     private ObstacleField _field;
+
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private GameObject gameOverText;
 
     private int score;
     private int lives;
@@ -30,6 +35,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
+        gameOverText.SetActive(false);
         _player = FindObjectOfType<Fairy>();
         _chain = FindObjectOfType<Chain>();
         _field = FindObjectOfType<ObstacleField>();
@@ -44,6 +50,9 @@ public class GameManager : MonoBehaviour
     }
 
     private void NewGame() {
+        gameOverText.SetActive(false);
+        scoreText.text = "" + 0;
+        healthText.text = "" + 0;
         score = 0;
         lives = 3;
         _chain.Respawn();
@@ -53,10 +62,12 @@ public class GameManager : MonoBehaviour
 
     private void GameOver() {
         _player.gameObject.SetActive(false);
+        gameOverText.SetActive(true);
     }
 
     public void ResetRound() {
         lives--;
+        healthText.text = "" + lives;
         if (lives <= 0) {
             GameOver();
         }
@@ -72,5 +83,6 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore(int amount) {
         score += amount;
+        scoreText.text = "" + score;
     }
 }
