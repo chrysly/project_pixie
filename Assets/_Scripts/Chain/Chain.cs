@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,9 +12,12 @@ public class Chain : MonoBehaviour {
     public Sprite chainHead;
     public Sprite chainTail;
     public Sprite chainBody;
-    public float speed = 20f;
+    public float speed = 5f;
 
-    public int chainSegments = 12;
+    public int chainSegments = 8;
+    
+    private int _initSegments;
+    private float _initSpeed;
 
     public LayerMask collisionMask;
     public BoxCollider2D homeBase;
@@ -23,13 +25,23 @@ public class Chain : MonoBehaviour {
     public int pointsHead = 100;
     public int pointsBody = 10;
 
+    private void Awake() {
+        _initSegments = chainSegments;
+        _initSpeed = speed;
+    }
+
+    public void ResetVars() {
+        chainSegments = _initSegments;
+        speed = _initSpeed;
+    }
+
     public void Respawn() {
         foreach (ChainSegment segment in _segments) {
             Destroy(segment.gameObject);
         }
         
         _segments.Clear();
-
+        
         for (int i = 0; i < chainSegments; i++) {
             Vector2 position = GridPosition(transform.position) + (Vector2.left * i);
             ChainSegment segment = Instantiate(chainSegmentPrefab, position, Quaternion.identity); 
