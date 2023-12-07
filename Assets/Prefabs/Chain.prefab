@@ -51,7 +51,7 @@ MonoBehaviour:
   chainTail: {fileID: 21300000, guid: eaab21b20e0825243b778b93bba47f85, type: 3}
   chainBody: {fileID: 21300000, guid: eaab21b20e0825243b778b93bba47f85, type: 3}
   speed: 5
-  chainSegments: 12
+  chainSegments: 8
   collisionMask:
     serializedVersion: 2
     m_Bits: 448
